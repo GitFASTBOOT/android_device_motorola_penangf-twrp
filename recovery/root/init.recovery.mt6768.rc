@@ -9,7 +9,9 @@ on init
 on boot
     # Load touch-related modules
     insmod /vendor/lib/modules/ilitek.ko
-
+    insmod /vendor/lib/modules/omnivision_tcm.ko
+    insmod /vendor/lib/modules/chipone9916.ko
+    
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
     write /sys/class/udc/musb-hdrc/device/cmode 2
