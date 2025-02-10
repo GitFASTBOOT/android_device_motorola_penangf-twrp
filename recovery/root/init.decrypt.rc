@@ -38,13 +38,6 @@ service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymas
     oneshot
     seclabel u:r:recovery:s0
 
-service load_ts_firmware /system/bin/touch_screen.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
-    
 on property:crypto.ready=1
     start mobicore
     start keymaster_attestation-1-1
