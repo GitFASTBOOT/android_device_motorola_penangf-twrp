@@ -38,6 +38,12 @@ service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymas
     oneshot
     seclabel u:r:recovery:s0
 
+service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 on property:crypto.ready=1
     start mobicore
     start keymaster_attestation-1-1
@@ -80,19 +86,8 @@ on property:crypto.ready=0
     stop vendor.gatekeeper-1-0
     stop vendor.keymaster-4-1-trustonic
     stop tee-1-1
-    
-    service tee-1-1 /vendor/bin/hw/vendor.trustonic.tee@1.1-service
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-    
+       
 on boot
-    setprop sys.usb.config mtp,adb
-    setprop sys.usb.state mtp,adb
-    setprop persist.sys.usb.config mtp,adb 
-
-    on boot
  #Added Manual For Trustonic
     mkdir /mnt/vendor/persist
     mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
