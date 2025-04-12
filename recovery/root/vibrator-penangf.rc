@@ -4,6 +4,7 @@ on early-init
     insmod /vendor/lib/modules/ax88179_178a.ko
     insmod /vendor/lib/modules/mtk-pwm.ko
     insmod /vendor/lib/modules/mtk_irtx_pwm.ko
+    insmod /vendor/lib/modules/regulator-vibrator.ko
 
 service vibrator-penangf /vendor/bin/hw/android.hardware.vibrator-service.mediatek
     user root

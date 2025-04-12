@@ -188,3 +188,8 @@ TW_CUSTOM_CPU_TEMP_PATH := sys/devices/virtual/thermal/thermal_zone4/temp
 
 # Modules
 TW_LOAD_VENDOR_BOOT_MODULES := true
+
+# Vibration
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/default"
+
