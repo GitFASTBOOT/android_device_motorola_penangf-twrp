@@ -14,10 +14,19 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/pb_penangf.mk \
-    $(LOCAL_DIR)/twrp_penangf.mk
-    
-COMMON_LUNCH_CHOICES += \
-     pb_penangf-eng \
-     twrp_penangf-eng
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit some common pb stuff.
+$(call inherit-product, vendor/pb/config/common.mk)
+
+# Inherit from penangf device
+$(call inherit-product, device/motorola/penangf/device.mk)
+
+PRODUCT_DEVICE := penangf
+PRODUCT_NAME := pb_penangf
+PRODUCT_BRAND := motorola
+PRODUCT_MODEL := penangf
+PRODUCT_MANUFACTURER := motorola
+
