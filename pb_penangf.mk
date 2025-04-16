@@ -24,6 +24,9 @@ $(call inherit-product, vendor/pb/config/common.mk)
 # Inherit from penangf device
 $(call inherit-product, device/motorola/penangf/device.mk)
 
+# PBRP flags
+PB_OFFICIAL := true
+
 PRODUCT_DEVICE := penangf
 PRODUCT_NAME := pb_penangf
 PRODUCT_BRAND := motorola
